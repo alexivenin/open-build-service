@@ -613,8 +613,10 @@ sub createrepo_debian {
       die("    dpkg-scanpackages failed: $?\n");
   }
   if (-f "$extrep/Packages.new") {
+    unlink("$extrep/Packages");
     link("$extrep/Packages.new", "$extrep/Packages");
     qsystem('gzip', '-9', '-f', "$extrep/Packages.new") && print "    gzip Packages.new failed: $?\n";
+    unlink("$extrep/Packages.new");
     unlink("$extrep/Packages.gz");
     rename("$extrep/Packages.new.gz", "$extrep/Packages.gz");
   }
