@@ -604,9 +604,9 @@ sub createrepo_debian {
   #unlink("$extrep/Packages.gz");
   #unlink("$extrep/Sources");
   #unlink("$extrep/Sources.gz");
-  unlink("$extrep/Release");
-  unlink("$extrep/Release.gpg");
-  unlink("$extrep/Release.key");
+  #unlink("$extrep/Release");
+  #unlink("$extrep/Release.gpg");
+  #unlink("$extrep/Release.key");
 
   print "    running dpkg-scanpackages\n";
   if (qsystem('chdir', $extrep, 'stdout', 'Packages.new', 'dpkg-scanpackages', '-m', '.', '/dev/null')) {
